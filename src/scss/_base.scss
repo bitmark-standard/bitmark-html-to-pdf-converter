@@ -1,0 +1,70 @@
+@use "@fontsource/pt-serif/scss/mixins" as PTSerif;
+@use "@fontsource/roboto/scss/mixins" as Roboto;
+@import "variables";
+@import "mixins";
+@import "~bitandblack-typography/src/typography";
+
+@include PTSerif.fontFaceCustom(
+    $weight: 700,
+    $unicodeRange: false
+);
+
+@include Roboto.fontFaceCustom(
+    $weight: 400,
+    $unicodeRange: false
+);
+
+@include Roboto.fontFaceCustom(
+    $weight: 700,
+    $unicodeRange: false
+);
+
+@page {
+    size: $page-width $page-height;
+    margin: $page-margin;
+    counter-increment: page;
+
+    @bottom-center {
+        content: counter(page);
+        font-size: $font-size-small;
+        text-align: center;
+    }
+}
+
+* {
+    box-decoration-break: clone;
+}
+
+:root {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: $font-size-normal;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+p {
+    margin: 1em 0;
+    orphans: 3;
+    widows: 3;
+    @include hyphens(
+        false,
+        6,
+        6,
+        12
+    );
+}
+
+p + p,
+li + li {
+    margin-top: .5rem;
+}
+
+ul {
+    margin: 1em 0;
+}

@@ -1,0 +1,8 @@
+@import "../variables";
+
+.bit__item {
+    display: inline-block;
+    font-weight: 700;
+    border-bottom: .5em solid $color-purple;
+    margin-right: 1rem;
+}

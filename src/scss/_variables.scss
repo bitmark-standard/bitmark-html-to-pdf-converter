@@ -1,0 +1,18 @@
+$page-width: 210mm;
+$page-height: 297mm;
+
+$page-margin: 20mm;
+
+$type-area-width: $page-width - $page-margin - $page-margin;
+$type-area-height: $page-height - $page-margin - $page-margin;
+
+$font-size-small: 10px;
+$font-size-normal: 16px;
+$font-size-large: 24px;
+
+$color-purple: rgb(84, 49, 153);
+$color-purple-light: lighten($color-purple, 50%);
+$color-cyan: rgb(155, 208, 255);
+$color-lime: rgb(184, 233, 134);
+$color-rose: rgb(255, 171, 187);
+$color-grey-light: rgb(238, 238, 238);

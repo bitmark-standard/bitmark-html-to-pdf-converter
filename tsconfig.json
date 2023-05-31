@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "sourceMap": false,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "moduleResolution": "Node",
+    },
+    "exclude": [
+        "./tests/**/*.ts"
+    ]
+}

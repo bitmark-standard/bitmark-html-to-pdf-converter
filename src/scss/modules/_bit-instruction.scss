@@ -1,0 +1,15 @@
+@import "../variables";
+
+.bit__instruction {
+    display: block;
+    width: 100%;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    clear: both;
+    page-break-before: avoid;
+    break-before: avoid;
+
+    p:first-child {
+        font-size: $font-size-large;
+    }
+}

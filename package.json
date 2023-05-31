@@ -1,0 +1,57 @@
+{
+    "name": "getmorebrain-bitmark-json-html-converter",
+    "version": "0.0.0",
+    "description": "Converting bitmark HTML to PDF.",
+    "type": "commonjs",
+    "author": {
+        "name": "Tobias Köngeter",
+        "email": "hello@bitandblack.com",
+        "homepage": "https://www.bitandblack.com"
+    },
+    "license": "proprietary",
+    "private": true,
+    "bin": {
+        "console": "bin/bitmark-json-to-html.js"
+    },
+    "dependencies": {
+        "bitandblack-console": "^0",
+        "bitandblack-typography": "^1.0",
+        "fs-extra": "^11.1.0",
+        "pagedjs-cli": "^0.2",
+        "temp": "^0.9"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.0",
+        "@babel/preset-typescript": "^7.0",
+        "@fontsource/pt-serif": "^4.0",
+        "@fontsource/roboto": "^4.0",
+        "@symfony/webpack-encore": "^4.0",
+        "@types/jest": "^28.0",
+        "autoprefixer": "^10.0",
+        "jest": "^28.0",
+        "jest-junit": "^15.0.0",
+        "perfectionist": "^2.0",
+        "postcss-loader": "^7.0",
+        "sass": "^1.0",
+        "sass-loader": "^13.0",
+        "ts-jest": "^28.0",
+        "typescript": "^4.0",
+        "webpack": "^5.0",
+        "webpack-cli": "^4.0",
+        "webpack-notifier": "^1.0"
+    },
+    "engines": {
+        "node": ">=12.0"
+    },
+    "scripts": {
+        "build": "tsc",
+        "test": "jest --runInBand",
+        "test:ci": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
+        "build-css": "encore production --progress && yarn clear:build",
+        "dev-css": "encore dev",
+        "clear:build": "rm ./dist/entrypoints.json ./dist/manifest.json"
+    },
+    "browserslist": [
+        "cover 99.5%"
+    ]
+}

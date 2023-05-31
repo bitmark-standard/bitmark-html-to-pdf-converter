@@ -1,0 +1,50 @@
+@import "../variables";
+
+$choice-field-width: 10mm;
+
+.bit__quiz {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.bit__quiz.bit__quiz--type-single-choice {
+    .choice__field:before {
+        border-radius: 10mm;
+    }
+}
+
+.bit__quiz + .bit__quiz {
+    margin-top: 20mm;
+}
+
+.quiz__choice {
+    display: table;
+    width: $type-area-width;
+    margin: 2em 0;
+}
+
+.choice__field,
+.choice__content {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.choice__field {
+    width: #{$choice-field-width};
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: $choice-field-width;
+        height: $choice-field-width;
+        margin-top: -.5em;
+        border: 1px solid $color-purple;
+    }
+}
+
+.choice__content {
+    width: #{$type-area-width - $choice-field-width};
+    padding-left: 5mm;
+}
