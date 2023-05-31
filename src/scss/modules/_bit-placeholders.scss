@@ -1,0 +1,94 @@
+@use "sass:math";
+@use "sass:selector";
+@import "../variables";
+@import "../mixins";
+
+$selector: ".placeholder";
+
+.bit__placeholders {
+    background-color: $color-lime;
+    margin: 10mm 0;
+    padding: 2.5mm;
+    text-align: center;
+
+    #{$selector}__item {
+        margin: .5em .75em;
+    }
+}
+
+.bit__placeholder {
+    display: inline;
+}
+
+#{$selector}__item {
+    display: inline-block;
+
+    & + #{$selector}__item {
+        margin: 0 .75rem;
+
+        &:before {
+            display: inline-block;
+            content: "\b7";
+            margin: 0 1em 0 0;
+        }
+    }
+
+    &#{$selector}__item--type-gap {
+        margin: 0 .25rem;
+        min-width: 2rem;
+        border-bottom: .1em solid $color-rose;
+        text-align: right;
+        position: relative;
+        vertical-align: bottom;
+        height: 1em;
+    }
+
+    &#{$selector}__item--type-select {
+        margin: 0 .25rem;
+        padding: 0 .25rem;
+        width: auto;
+    }
+}
+
+#{$selector}__option {
+    display: inline-block;
+    padding: 0 .5rem;
+    font-size: $font-size-small;
+    background-color: $color-purple-light;
+    color: $color-purple;
+    white-space: nowrap;
+
+    &:first-child {
+        border-top-left-radius: 1em;
+        border-bottom-left-radius: 1em;
+    }
+
+    &:last-child {
+        border-top-right-radius: 1em;
+        border-bottom-right-radius: 1em;
+    }
+
+    & + #{$selector}__option {
+        border-left: .1em solid #fff;
+    }
+}
+
+#{$selector}__instruction {
+    font-style: italic;
+    font-size: $font-size-small;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+$maxSteps: 30;
+$maxSpaceAdditional: 2;
+
+@for $counter from 1 through $maxSteps {
+    [data-placeholder-max-length="#{$counter}"] {
+        $factor: math.div($counter - 1, $maxSteps - 1);
+        $factor: decimal-round($factor, 2);
+        $spaceAdditional: ($factor - 1) * -1 * $maxSpaceAdditional;
+        width: #{$counter + $spaceAdditional}em;
+    }
+}

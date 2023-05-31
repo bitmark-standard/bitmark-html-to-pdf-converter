@@ -1,0 +1,13 @@
+$selector: ".url";
+
+#{$selector} {
+    page-break-before: avoid;
+    break-before: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+
+    & #{$selector}__piece {
+        display: inline-block;
+        hyphens: none;
+    }
+}

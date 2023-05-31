@@ -1,0 +1,92 @@
+@use "sass:math";
+@import "../variables";
+@import "../mixins";
+
+$selector: ".statements";
+
+$index-width: 10mm;
+$answer-width: 10mm;
+$space-between: 5mm;
+
+.bit__statements {
+    margin: 1em 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+
+    #{$selector}__item {
+        & + #{$selector}__item {
+            margin-top: 2rem;
+        }
+    }
+
+    #{$selector}__header {
+        text-align: right;
+    }
+
+    #{$selector}__header,
+    #{$selector}__item {
+        display: table;
+        width: $type-area-width;
+    }
+
+    #{$selector}__header > *,
+    #{$selector}__item > * {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .header__index,
+    .item__index {
+        width: $index-width;
+    }
+
+    .header__content,
+    .item__content {
+        width: $type-area-width - (($answer-width + $space-between) * 2);
+
+        p:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .header__answer,
+    .item__answer {
+        width: $answer-width + $space-between;
+        height: $answer-width + $space-between;
+        padding-left: $space-between;
+    }
+
+    .header__answer {
+        font-size: $font-size-small;
+        text-align: center;
+    }
+
+    .item__answer {
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: $answer-width;
+            height: $answer-width;
+            border: 1px solid $color-purple;
+            border-radius: #{math.div($answer-width, 2)};
+            margin-top: -.5em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+.bit__statements.bit__statements--indexed {
+    .header__content,
+    .item__content {
+        width: $type-area-width - (($answer-width + $space-between) * 2) - $index-width;
+    }
+
+    .header__answer,
+    .item__answer {
+        //margin-left: $space-between;
+    }
+}

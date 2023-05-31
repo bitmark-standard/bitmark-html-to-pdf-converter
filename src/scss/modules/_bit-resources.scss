@@ -1,0 +1,44 @@
+@import "../variables";
+
+$selector: ".resource";
+
+.bit__resource {
+    margin: 10mm 0;
+
+    &.bit__resource--type-audio,
+    &.bit__resource--type-video-link {
+        width: 50mm;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.bit__resource--type-article {
+        $padding: 5mm;
+        column-count: 2;
+        column-gap: #{$padding * 2};
+        column-rule: 2px dashed $color-purple;
+        background-color: $color-grey-light;
+        padding: $padding;
+        page-break-before: avoid;
+        break-before: avoid;
+        page-break-inside: auto;
+        break-inside: auto;
+
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style-position: inside;
+        }
+
+        p:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+#{$selector}__link {
+    text-align: center;
+    margin-bottom: 2em;
+}
